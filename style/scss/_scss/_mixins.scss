@@ -1,0 +1,31 @@
+// Mixin pour les écrans petits (entre 576px et 767.98px)
+
+@mixin Mobile {
+    @media (min-width: 420px) and (max-width: 1124.98px) {
+        @content;
+    }
+}
+
+@mixin Desktop {
+    @media (min-width: 1025px) and (max-width: 5000px) {
+        @content;
+    }
+}
+
+@mixin MD {
+    @media (min-width: 768px) and (max-width: 1024.99px) {
+        @content;
+    }
+}
+
+@mixin LG {
+    @media (min-width: 1025px) and (max-width: 1399.98px) {
+        @content;
+    }
+}
+
+@mixin XL {
+    @media (min-width: 1400px) {
+        @content;
+    }
+}
