@@ -1,14 +1,43 @@
 //import
 @import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Inter:wght@300;400;700&display=swap");
 
+@import "./variables";
+
 html {
     font-size: 62.5%;
 }
 
-// supprimer l'affichage la barre de scroll
 body {
     overflow-x: hidden;
-    font-family: "Inter", sans-serif;
+    font-family: "Akshar", sans-serif;
+    color: $color-text;
+    background-color: $color-light;
+
+    ::selection {
+        background-color: $color-primary; /* Jaune, par exemple */
+        color: $color-text; /* Et le texte en noir */
+    }
+
+    /* Pour Mozilla Firefox, utilisez */
+    ::-moz-selection {
+        background-color: $color-primary; /* Jaune, par exemple */
+        color: $color-text; /* Et le texte en noir */
+    }
+
+    .scroll-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: $color-primary;
+        color: $color-text;
+        text-align: center;
+        height: 4.8rem;
+        width: 4.8rem;
+        padding: 0.8rem;
+        border-radius: 12rem;
+        cursor: pointer;
+        display: none; /* Cachez initialement la flèche */
+    }
 }
 
 * {
@@ -18,21 +47,29 @@ body {
 }
 
 h1 {
-    font-size: clamp(8rem, 20px + 5vw, 20rem);
-    font-family: "Berkshire Swash", serif;
+    font-size: clamp(6rem, 20px + 10vw, 15rem);
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-weight: 800;
+    @include desktop {
+        font-size: clamp(10rem, 30px + 10vw, 25rem);
+    }
 }
 
 h2 {
-    font-size: clamp(3rem, 20px + 3vw, 6rem);
+    font-size: clamp(4rem, 20px + 3vw, 6rem);
+    font-weight: 600;
 }
+
+h3 {
+    font-size: clamp(3rem, 8px + 2vw, 6rem);
+}
+
 h4 {
-    font-size: clamp(1.8rem, 10px + 2vw, 3.5rem);
+    font-size: clamp(1.6rem, 10px + 5vw, 2rem);
 }
-h5 {
-    font-size: clamp(1.6rem, 10px + 5vw, 2.6rem);
-}
+
 p {
-    font-size: clamp(1.5rem, 10px + 5vw, 2.5rem);
+    font-size: clamp(1.5rem, 10px + 5vw, 2rem);
 }
 
 i {
@@ -40,26 +77,33 @@ i {
 }
 
 a {
-    font-size: clamp(1rem, 5px + 1vw, 2rem);
     text-decoration: none;
-    color: black;
+    background: $color-text;
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    color: $color-light;
+    font-family: "Akshar", sans-serif;
+    font-size: clamp(1rem, 10px + 5vw, 1.75rem);
 }
 
 ul {
     list-style: none;
 }
 
-.stickLight {
-    margin: 3vh 0 10vh 0;
-}
-.stickDark {
-    margin: 3vh 0 10vh 0;
+li {
+    font-size: clamp(1rem, 10px + 5vw, 1.75rem);
 }
 
 button {
     border: none;
-    background: none;
+    background: $color-text;
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.8rem;
     cursor: pointer;
+    color: $color-light;
+    font-family: "Akshar", sans-serif;
+    font-size: clamp(1rem, 10px + 5vw, 1.75rem);
 }
 
 input,
@@ -69,4 +113,20 @@ select,
 optgroup,
 option {
     outline: none;
+}
+
+#error {
+    p {
+        font-size: clamp(1.5rem, 10px + 5vw, 2rem);
+        margin: 2rem 0;
+    }
+}
+
+#success {
+    font-size: clamp(1.5rem, 10px + 5vw, 2rem);
+}
+
+input::placeholder,
+textarea::placeholder {
+    opacity: 60%;
 }
